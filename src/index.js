@@ -3,6 +3,10 @@
  * malashta@gmail.com
  * http://lexek.com
  */
-'use strict';
+import angular from 'angular';
+import Popup from './popup';
+
+angular.module('mainframe', [])
+    .service('Popup', Popup);
 
 
