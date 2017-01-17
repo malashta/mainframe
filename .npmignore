@@ -1,0 +1,11 @@
+.idea
+backend
+build
+client
+node_modules
+src
+webpack
+.editorconfig
+.eslintrc
+.gitignore
+webpack.config.js

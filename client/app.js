@@ -3,3 +3,5 @@
  * malashta@gmail.com
  * http://lexek.com
  */
+import angular from 'angular';
+import uirouter from 'angular-ui-router';
