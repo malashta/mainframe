@@ -1,7 +1,14 @@
-/**
- * Created by Malashta Sergey on 17.01.2017.
- * malashta@gmail.com
- * http://lexek.com
- */
-import angular from 'angular';
-import uirouter from 'angular-ui-router';
+'use strict';
+
+// Declare app level module which depends on views, and components
+angular.module('myApp', [
+  'ngRoute',
+  'myApp.home',
+  'myApp.profile',
+  'myApp.version'
+]).
+config(['$locationProvider', '$routeProvider', function($locationProvider, $routeProvider) {
+  $locationProvider.hashPrefix('!');
+
+  $routeProvider.otherwise({redirectTo: '/home'});
+}]);

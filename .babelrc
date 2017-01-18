@@ -1,0 +1,8 @@
+{
+    "presets": [
+        "angular"
+    ],
+    "plugins": [
+        "transform-decorators-legacy"
+    ]
+}

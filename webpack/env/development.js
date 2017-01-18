@@ -16,41 +16,26 @@ module.exports = function (_path) {
         devtool: 'eval',
 
         output: {
-            path: path.join(_path, 'build'),
-            filename: "[name].js"
-        },
-
-        eslint: {
-            configFile: path.resolve(_path, '.eslintrc'),
-            formatter: require("eslint-friendly-formatter"),
-            quiet: true,
-            failOnError: false,
-            failOnWarning: false,
-            emitError: false,
-            emitWarning: true
+            path: path.join(_path, '/client/vendor'),
+            filename: "mainframe.js"
         },
 
         module: {
             loaders: [
                 {
-                    test: /\.js?$/,
-                    loader: 'config',
-                    include: [
-                        path.resolve(_path, "src")
-                    ]
-                },
-                {
-                    test: /\.js?$/,
-                    exclude: /node_modules/,
-                    loaders: ["babel-loader?cacheDirectory", "eslint-loader"]
+                    test: /\.js$/,
+                    loader: 'babel',
+                    exclude: ['node_modules']
                 }
             ]
         },
 
         plugins: [
-
-            new CleanPlugin([_path + '/public'], {root: _path})
-
-        ]
+            new CleanPlugin([_path + '/build', _path + '/client/vendor'], {root: _path})
+        ],
+        watch: true,
+        watchOptions: {
+            aggregateTimeout: 100
+        }
     }
 };
